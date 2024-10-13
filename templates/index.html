@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mashup Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Mashup Generator</h1>
+        <form id="mashup-form" action="{{ url_for('generate_mashup') }}" method="POST">
+            <div class="form-group">
+                <label for="singer">Singer's Name:</label>
+                <input type="text" id="singer" name="singer" required placeholder="Enter singer's name">
+            </div>
+
+            <div class="form-group">
+                <label for="number_of_videos">Number of Videos:</label>
+                <input type="number" id="number_of_videos" name="number_of_videos" required min="1" placeholder="1 or more">
+            </div>
+
+            <div class="form-group">
+                <label for="duration">Duration (in seconds):</label>
+                <input type="number" id="duration" name="duration" value="10" min="1" placeholder="Duration in seconds">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required placeholder="you@example.com">
+            </div>
+
+            <button type="submit">Generate Mashup</button>
+        </form>
+        <div id="status-message" class="status-message"></div>
+    </div>
+</body>
+</html>
